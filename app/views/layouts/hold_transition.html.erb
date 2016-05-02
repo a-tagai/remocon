@@ -1,0 +1,83 @@
+
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Remocon</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!-- for responsive -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- font awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <!-- ionicons -->
+  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body class="hold-transition  login-page skin-purple-light">
+
+  <!-- トップメニュー -->
+  <header class="main-header">
+
+    <!-- ロゴ -->
+    <a href="" class="logo">Remocon</a>
+
+    <!-- トップメニュー -->
+    <nav class="navbar navbar-static-top" role="navigation">
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    </nav>
+
+  </header><!-- end header -->
+
+  <!-- content -->
+  <div class="login-box">
+    <!-- コンテンツヘッダ -->
+    <section class="content-header">
+      <h1>
+        Hold テンプレ
+      </h1>
+    </section>
+
+    <!-- メインコンテンツ -->
+    <section class="content">
+      <div class="callout callout-danger">
+        <h4>メッセージ</h4>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <!-- コンテンツ1 -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">ボックスタイトル</h3>
+        </div>
+        <div class="box-body">
+          <p>ボックスボディー</p>
+        </div>
+      </div>
+
+      <%= yield %>
+    </section>
+    <%= debug(params) if Rails.env.development? %>
+
+  </div><!-- end content -->
+
+
+
+
+
+  <!-- JS -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</body>
+</html>

@@ -1,26 +1,103 @@
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
 <head>
+  <meta charset="utf-8">
   <title>Remocon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- for responsive -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- font awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <!-- ionicons -->
+  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
   <%= csrf_meta_tags %>
+
 </head>
-<body>
-<header>
-  <nav>
-    <% if user_signed_in? %>
-      <%= link_to 'プロフィール変更', edit_user_registration_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'サインアップ', new_user_registration_path %>
-      <%= link_to 'ログイン', new_user_session_path %>
-    <% end %>
-  </nav>
-</header>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-<%= debug(params) if Rails.env.development? %>
+<body class="skin-purple-light">
+  <div class="wrapper">
+
+    <!-- トップメニュー -->
+    <header class="main-header">
+
+      <!-- ロゴ -->
+      <a href="" class="logo">Remocon</a>
+
+      <!-- トップメニュー -->
+      <nav class="navbar navbar-static-top" role="navigation">
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      </nav>
+
+    </header><!-- end header -->
+
+    <!-- サイドバー -->
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <ul class="sidebar-menu">
+
+          <!-- メニューヘッダ -->
+          <li class="header">機能一覧</li>
+
+          <!-- メニュー項目 -->
+          <li><a href="">新規登録</a></li>
+
+        </ul>
+      </section>
+    </aside><!-- end sidebar -->
+
+    <!-- content -->
+    <div class="content-wrapper">
+      <!-- コンテンツヘッダ -->
+      <section class="content-header">
+        <h1>
+          General UI
+          <small>Preview of UI elements</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#">UI</a></li>
+          <li class="active">テスト</li>
+        </ol>
+      </section>
+
+      <!-- メインコンテンツ -->
+      <section class="content">
+        <div class="callout callout-danger">
+          <h4>メッセージ</h4>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        <!-- コンテンツ1 -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">ボックスタイトル</h3>
+          </div>
+          <div class="box-body">
+            <p>ボックスボディー</p>
+          </div>
+        </div>
+
+        <%= yield %>
+        <%= debug(params) if Rails.env.development? %>
+      </section>
+
+    </div><!-- end content -->
+
+  </div><!-- end wrapper -->
+
+  <!-- JS -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 </body>
 </html>

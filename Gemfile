@@ -18,9 +18,11 @@ gem "bower-rails"
 gem 'devise'
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
+  gem 'faker',        '1.4.2'
+  gem "factory_girl_rails", "~> 4.4.1"
   gem "rspec-rails", "~> 3.1.0"
   gem 'spring'
+  gem 'sqlite3',     '1.3.9'
 
   gem "pry-byebug"
   gem "pry-coolline"

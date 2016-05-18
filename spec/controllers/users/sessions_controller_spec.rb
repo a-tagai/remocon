@@ -6,7 +6,7 @@ RSpec.describe Users::SessionsController, :type => :controller do
   end
 
   describe 'GET sessions/#new' do
-    context '一般ユーザーでのログイン状態の場合' do
+    context 'ログイン状態の場合' do
       login_user
       before(:each) do
         get :new
@@ -23,7 +23,6 @@ RSpec.describe Users::SessionsController, :type => :controller do
 
     context '未ログイン状態の場合' do
       before(:each) do
-        skip 'Devise.mappings[:user]を指定して良いのか後で調べる'
         get :new
       end
 
@@ -33,6 +32,23 @@ RSpec.describe Users::SessionsController, :type => :controller do
 
       example ":newテンプレートがレンダリングされていること" do
         expect(response).to render_template :new
+      end
+    end
+  end
+
+  describe 'POST sessions/#create' do
+    context 'ログイン状態の場合' do
+      login_user
+      example "ルートページへリダイレクトされること" do
+        post :create
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context '未ログイン状態の場合' do
+      example "ログイン状態になること" do
+        post :create
+        expect(user_signed_in?).to
       end
     end
   end

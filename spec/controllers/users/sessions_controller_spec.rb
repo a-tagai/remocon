@@ -27,7 +27,7 @@ RSpec.describe Users::SessionsController, :type => :controller do
       end
 
       example "current_userでログインユーザー情報が取得できないこと" do
-        expect(controller.current_user).to eq(nil)
+        expect(subject.current_user).to eq(nil)
       end
 
       example ":newテンプレートがレンダリングされていること" do
@@ -48,7 +48,7 @@ RSpec.describe Users::SessionsController, :type => :controller do
     context '未ログイン状態の場合' do
       example "ログイン状態になること" do
         post :create
-        expect(user_signed_in?).to
+        expect(subject.user_signed_in?).to eq true
       end
     end
   end

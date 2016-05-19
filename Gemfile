@@ -19,14 +19,14 @@ gem 'devise'
 
 group :development, :test do
   gem 'faker',        '1.4.2'
-  gem "factory_girl_rails", "~> 4.4.1"
-  gem "rspec-rails", "~> 3.1.0"
-  gem 'spring'
-  gem 'sqlite3',     '1.3.9'
 
   gem "pry-byebug"
   gem "pry-coolline"
   gem "pry-rails"
+
+  gem "rspec-rails", "~> 3.1.0"
+  gem 'spring'
+  gem 'sqlite3',     '1.3.9'
 end
 
 group :development do
@@ -37,4 +37,9 @@ group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
+end
+
+group :test do
+  gem "capybara"
+  gem "factory_girl_rails", "~> 4.4.1"
 end

@@ -13,7 +13,7 @@ RSpec.describe Users::SessionsController, :type => :controller do
       end
 
       example "current_userでログインユーザー情報が取得できること" do
-        expect(controller.current_user).to_not eq(nil)
+        expect(subject.current_user).to_not eq(nil)
       end
 
       example "ルートページへリダイレクトされること" do
@@ -47,7 +47,9 @@ RSpec.describe Users::SessionsController, :type => :controller do
 
     context '未ログイン状態の場合' do
       example "ログイン状態になること" do
-        post :create
+        post :create, user: FactoryGirl.attributes_for(:ichiro)
+        #expect(subject.current_user).to_not eq(nil)
+
         expect(subject.user_signed_in?).to eq true
       end
     end

@@ -22,7 +22,7 @@ RSpec.describe Users::SessionsController, :type => :controller do
     end
 
     context '未ログイン状態の場合' do
-      before(:each) do
+      before do
         get :new
       end
 
@@ -37,6 +37,11 @@ RSpec.describe Users::SessionsController, :type => :controller do
   end
 
   describe 'POST sessions/#create' do
+    before do
+      #ユーザーアカウントの作成
+      FactoryGirl.create(:ichiro).confirm!
+    end
+
     context 'ログイン状態の場合' do
       login_user
       example "ルートページへリダイレクトされること" do
@@ -46,11 +51,17 @@ RSpec.describe Users::SessionsController, :type => :controller do
     end
 
     context '未ログイン状態の場合' do
-      example "ログイン状態になること" do
-        post :create, user: FactoryGirl.attributes_for(:ichiro)
-        #expect(subject.current_user).to_not eq(nil)
-
-        expect(subject.user_signed_in?).to eq true
+      context '存在するアカウントでログインを行う場合' do
+        example "ログインに成功すること" do
+          post :create, user: FactoryGirl.attributes_for(:ichiro)
+          expect(subject.user_signed_in?).to eq(true)
+        end
+      end
+      context '存在しないアカウントでログインを行う場合' do
+        example "ログインに失敗すること" do
+          post :create, user: FactoryGirl.attributes_for(:jiro)
+          expect(subject.user_signed_in?).to_not eq(true)
+        end
       end
     end
   end

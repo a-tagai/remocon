@@ -48,11 +48,8 @@
     </div>
     <!-- /.login-logo -->
 
-    <div class="callout callout-danger">
-      <p>message</p>
-      <p><%= notice %></p>
-      <p><%= alert %></p>
-    </div>
+    <%= render "shared/message_box" %>
+
 
     <!-- メインコンテンツ -->
     <%= yield %>

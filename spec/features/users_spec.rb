@@ -14,13 +14,16 @@ feature 'Users', :type => :feature do
       before do
         visit new_user_session_path
       end
+
       scenario '既存アカウントでログインが可能であること' do
         fill_in 'Email', with: 'example@example.com'
         fill_in 'Password', with: 'password'
         click_button 'ログイン'
-
         expect(page).to have_content 'ログインしました。'
+      end
 
+      scenario '存在しないアカウントでログインが失敗すること' do
+        skip 'TODO:後で実装'
       end
     end
   end

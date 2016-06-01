@@ -23,7 +23,10 @@ feature 'Users', :type => :feature do
       end
 
       scenario '存在しないアカウントでログインが失敗すること' do
-        skip 'TODO:後で実装'
+        fill_in 'Email', with: 'unknown@example.com'
+        fill_in 'Password', with: 'password'
+        click_button 'ログイン'
+        expect(page).to have_content 'メールアドレスまたはパスワードが無効です。'
       end
     end
   end

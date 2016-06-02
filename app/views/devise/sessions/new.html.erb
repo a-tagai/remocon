@@ -9,24 +9,22 @@
       <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
       <span class="glyphicon glyphicon-lock form-control-feedback"></span>
     </div>
-    <div class="row">
+    <div class="form-group has-feedback">
       <% if devise_mapping.rememberable? -%>
-      <div class="col-xs-8">
-        <div class="checkbox">
-          <label>
-            <%= f.check_box :remember_me %>
-            ログイン情報を保存する
-          </label>
-        </div>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :remember_me %>
+          ログイン情報を保存する
+        </label>
       </div>
       <% end %>
-      <!-- /.col -->
-      <div class="col-xs-4">
-        <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-flat" %>
-      </div>
-      <!-- /.col -->
+
+      <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-flat" %>
     </div>
-    <%= render "devise/shared/links" %>
   <% end %>
+  <div class="text-center">
+    <%= render "devise/shared/links" %>
+  </div>
+
 </div>
 <!-- /.login-box-body-->

@@ -71,4 +71,8 @@ RSpec.describe Users::SessionsController, :type => :controller do
       end
     end
   end
+
+  describe 'DELETE sessions/#destroy' do
+    skip 'TODO:ログアウト処理'
+  end
 end

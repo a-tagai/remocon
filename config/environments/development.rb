@@ -38,4 +38,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # mailer setting
+  config.action_mailer.default_url_options = { host: '192.168.33.10', port: 3000 }
+
+  #logger format
+  config.logger = Logger.new(config.paths["log"].first)
+  config.logger.formatter = Logger::Formatter.new
 end

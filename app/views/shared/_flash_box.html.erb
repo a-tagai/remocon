@@ -1,0 +1,9 @@
+<% if flash[:notice] %>
+  <div class="callout callout-success">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% elsif flash[:alert]%>
+  <div class="callout callout-danger">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>

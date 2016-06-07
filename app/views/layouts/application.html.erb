@@ -19,28 +19,7 @@
   <div class="wrapper">
 
     <!-- トップメニュー -->
-    <header class="main-header">
-
-      <!-- ロゴ -->
-      <a href="" class="logo">Remocon</a>
-
-      <!-- トップメニュー -->
-      <nav class="navbar navbar-static-top" role="navigation">
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <% if user_signed_in? %>
-            <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div>
-      </nav>
-
-    </header><!-- end header -->
-
+    <%= render "layouts/header" %>
     <!-- サイドバー -->
     <aside class="main-sidebar">
       <section class="sidebar">
@@ -75,20 +54,12 @@
       <section class="content">
         <%= render "shared/flash_box" %>
         <!-- コンテンツ1 -->
-        <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">ボックスタイトル</h3>
-          </div>
-          <div class="box-body">
-            <p>ボックスボディー</p>
-          </div>
-        </div>
-
         <%= yield %>
         <%= debug(params) if Rails.env.development? %>
       </section>
 
     </div><!-- end content -->
+    <%= render "layouts/setting_sidebar" %>
 
   </div><!-- end wrapper -->
 

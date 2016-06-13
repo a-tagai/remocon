@@ -13,6 +13,6 @@
  *= require_tree .
  *= require admin-lte/bootstrap/css/bootstrap
  *= require admin-lte/dist/css/AdminLTE
- *= require admin-lte/dist/css/skins/skin-purple-light
+ *= require admin-lte/dist/css/skins/_all-skins.min
  *= require_self
  */

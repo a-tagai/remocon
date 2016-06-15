@@ -1,8 +1,15 @@
 .switch{
   position: relative;
+  margin-bottom: 1em;
 }
-.switch-btns{
+.switch-btn{
+  margin-bottom: 0;
+}
+.switch-subBtns{
   position: absolute;
   top: 0.5em;
   right: 0.5em;
+}
+.switch-footer{
+  margin-top: 0.5em;
 }

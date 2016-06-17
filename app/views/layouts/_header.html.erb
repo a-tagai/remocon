@@ -1,3 +1,6 @@
+<% if true
+else
+%>
     <header class="main-header">
 
       <!-- ロゴ -->
@@ -22,3 +25,26 @@
       </nav>
 
     </header><!-- end header -->
+<% end %>
+
+<header class="appHeader">
+  <div class="appHeader-logo">
+    <a href="">Remocon</a>
+  </div>
+  <div  class="appHeader-nav">
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        <% else %>
+          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</header>

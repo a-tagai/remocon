@@ -15,25 +15,27 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body class="hold-transition  login-page skin-black-light">
+<body class="fixed hold-transition  login-page skin-black-light">
 
   <!-- トップメニュー -->
   <%= render "layouts/header" %>
 
   <!-- content -->
-  <div class="login-box">
-    <!-- コンテンツヘッダ -->
-    <div class="login-logo">
-      Remocon
+  <div class="content-wrapper">
+    <div class="login-box">
+      <!-- コンテンツヘッダ -->
+      <div class="login-logo">
+        Remocon
+      </div>
+      <!-- /.login-logo -->
+
+      <%= render "shared/flash_box" %>
+
+
+      <!-- メインコンテンツ -->
+      <%= yield %>
+
     </div>
-    <!-- /.login-logo -->
-
-    <%= render "shared/flash_box" %>
-
-
-    <!-- メインコンテンツ -->
-    <%= yield %>
-
   </div><!-- end content -->
 
 

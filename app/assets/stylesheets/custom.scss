@@ -1,3 +1,45 @@
+.clearfix {
+  *zoom: 1;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.content-wrapper{
+  margin-left: 0;
+}
+
+//*--modules--*//
+//header
+.appHeader{
+  position: fixed;
+  z-index: 10000;
+  background-color: #FFF;
+  width: 100%;
+}
+.appHeader-logo{
+  width: 230px;
+  float: left;
+  text-align: center;
+  font-size: 20px;
+  line-height: 45px;
+  a{
+    color: #333;
+  }
+}
+.appHeader-nav{
+  @extend .clearfix;
+  margin-left: 230px;
+  float:right;
+  a{
+    color: #333;
+  }
+}
+
+
+//switch
 .switch{
   position: relative;
   margin-bottom: 1em;

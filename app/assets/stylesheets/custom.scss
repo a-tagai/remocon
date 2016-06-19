@@ -1,17 +1,10 @@
-.clearfix {
-  *zoom: 1;
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
+//*--customs--*//
 
 .content-wrapper{
   margin-left: 0;
 }
 
-//*--modules--*//
+//*--new modules--*//
 //header
 .appHeader{
   position: fixed;
@@ -20,7 +13,7 @@
   width: 100%;
 }
 .appHeader-logo{
-  width: 230px;
+  width: 165px;
   float: left;
   text-align: center;
   font-size: 20px;
@@ -31,7 +24,7 @@
 }
 .appHeader-nav{
   @extend .clearfix;
-  margin-left: 230px;
+  display: inline-block;
   float:right;
   a{
     color: #333;

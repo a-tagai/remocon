@@ -1,50 +1,68 @@
 //*--customs--*//
+body.myapp{
 
-.content-wrapper{
-  margin-left: 0;
+  .content-wrapper{
+    margin-left: 0;
+  }
+
 }
-
 //*--new modules--*//
 //header
 .appHeader{
-  position: fixed;
-  z-index: 10000;
+  @extend .clearfix;
+
   background-color: #FFF;
   width: 100%;
-}
-.appHeader-logo{
-  width: 165px;
-  float: left;
-  text-align: center;
-  font-size: 20px;
-  line-height: 45px;
-  a{
-    color: #333;
+
+  &-logo{
+    width: 165px;
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    line-height: 45px;
+    a{
+      color: #333;
+    }
   }
-}
-.appHeader-nav{
-  @extend .clearfix;
-  display: inline-block;
-  float:right;
-  a{
-    color: #333;
+  &-nav{
+    @extend .clearfix;
+    display: inline-block;
+    float:right;
+    a{
+      color: #333;
+    }
   }
 }
 
+
+//fixed nav
+.fixedNav{
+  height: 50px;
+  &-inner{
+    position: fixed;
+    top: 0px;
+    z-index: 10000;
+    background-color: #FFF;
+    width: 100%;
+  }
+
+}
 
 //switch
 .switch{
   position: relative;
   margin-bottom: 1em;
-}
-.switch-btn{
-  margin-bottom: 0;
-}
-.switch-subBtns{
-  position: absolute;
-  top: 0.5em;
-  right: 0.5em;
-}
-.switch-footer{
-  margin-top: 0.5em;
+
+  &-btn{
+    margin-bottom: 0;
+  }
+  &-subBtns{
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+  }
+  &-footer{
+    margin-top: 0.5em;
+  }
+
 }

@@ -15,15 +15,29 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body class="fixed skin-black-light">
+<body class="myapp skin-black-light">
   <div class="wrapper">
 
     <!-- トップメニュー -->
     <%= render "layouts/header" %>
 
 
+
     <!-- content -->
     <div class="content-wrapper" style="min-height: 600px;">
+      <div class="fixedNav">
+        <div class="fixedNav-inner">
+          <p class="text-right">
+            <button type="button" class="btn btn-default">
+              <i class="fa fa-plus"></i> 追加
+            </button>
+            <button type="button" class="btn btn-default">
+              <i class="fa fa-edit"></i> 編集OFF
+            </button>
+          </p>
+        </div>
+      </div>
+      <!-- fixedNav -->
 
       <!-- メインコンテンツ -->
       <section class="content">
